@@ -21,7 +21,7 @@ class ForecastAdapter(var items: List<Day>) : RecyclerView.Adapter<ForecastAdapt
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.binding.forecast = items[position]
         holder.binding.imageView.setImageResource(android.R.drawable.ic_menu_report_image)
-        var url = holder.binding.root.context.getString(R.string.image_url, items[position].weather[0].icon)
+        val url = holder.binding.root.context.getString(R.string.image_url, items[position].weather[0].icon)
         Glide.with(holder.binding.root.context).load(url).into(holder.binding.imageView)
 
     }

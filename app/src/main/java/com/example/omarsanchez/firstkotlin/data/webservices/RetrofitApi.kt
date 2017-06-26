@@ -24,10 +24,11 @@ class RetrofitApi {
     }
 
     private val api: Services by lazy {
-        val logging = HttpLoggingInterceptor()
-        logging.level = HttpLoggingInterceptor.Level.BODY
-        val httpClient = OkHttpClient.Builder()
-        httpClient.addInterceptor(logging)
+        val httpClient = OkHttpClient.Builder().apply {
+            addInterceptor(HttpLoggingInterceptor().apply {
+                level = HttpLoggingInterceptor.Level.BODY
+            })
+        }
 
         Retrofit.Builder()
                 .baseUrl(BASE_URL)

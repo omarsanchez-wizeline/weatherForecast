@@ -15,8 +15,8 @@ import io.reactivex.Observable
 class MainActivity : AppCompatActivity(), OnDataProvided {
 
 
-    val dataProvider: DataProvider by lazy { DataProvider(this) }
-    val adapter: ForecastAdapter by lazy { ForecastAdapter(mutableListOf()) }
+    val dataProvider by lazy { DataProvider(this) }
+    val adapter by lazy { ForecastAdapter(mutableListOf()) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
